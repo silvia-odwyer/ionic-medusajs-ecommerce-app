@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ecommerce-store",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}

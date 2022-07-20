@@ -1,0 +1,7 @@
+{
+  "name": "ecommerce-store",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
