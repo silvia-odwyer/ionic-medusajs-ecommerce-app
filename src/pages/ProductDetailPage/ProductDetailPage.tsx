@@ -1,14 +1,13 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './ProductDetailPage.css';
 import React, { useEffect, useState } from 'react';
 import { IonCard, IonCardHeader, IonCardSubtitle, IonToast, IonImg, IonCardTitle, IonCardContent, IonButton } from '@ionic/react';
 import axios from "axios";
 import { RouteComponentProps } from 'react-router-dom';
 import { Product } from '../../Interfaces';
+import medusaServerBaseURL from "../../server-url";
 
 const ProductDetailPage: React.FC<RouteComponentProps<{ id: string }>> = (props) => {
-  const medusaServerURL = "http://localhost:9000";
-  const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState<Product>();
   const [showToast, setShowToast] = useState(false);
 
@@ -16,18 +15,14 @@ const ProductDetailPage: React.FC<RouteComponentProps<{ id: string }>> = (props)
     let product_id = props.match.params.id;
 
     axios
-      .get(`${medusaServerURL}/store/products/${product_id}`)
+      .get(`${medusaServerBaseURL}/store/products/${product_id}`)
       .then((response) => {
         if (response.data.product) {
-          console.log("product id ", product_id)
           setProduct(response.data.product);
         }
       })
       .catch((err) => {
         console.log("error", err)
-      })
-      .finally(() => {
-        setLoading(false);
       });
   }, [props.match.params.id])
 
@@ -58,18 +53,18 @@ const ProductDetailPage: React.FC<RouteComponentProps<{ id: string }>> = (props)
             <IonCardContent>
               <h3>Description</h3>
               {product["description"]}
-              <IonButton class="button" size="default" shape="round" expand="block"  onClick={() => setShowToast(true)}>Add to Cart</IonButton>
+              <IonButton class="button" size="default" shape="round" expand="block" onClick={() => setShowToast(true)}>Add to Cart</IonButton>
 
             </IonCardContent>
           </IonCard>
         )}
 
-      <IonToast
-        isOpen={showToast}
-        onDidDismiss={() => setShowToast(false)}
-        message="Product added to cart"
-        duration={800}
-      />
+        <IonToast
+          isOpen={showToast}
+          onDidDismiss={() => setShowToast(false)}
+          message="Product added to cart"
+          duration={800}
+        />
 
       </IonContent>
     </IonPage>

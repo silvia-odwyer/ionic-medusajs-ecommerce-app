@@ -3,30 +3,24 @@ import './Home.css';
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import ProductItemCard from '../../components/ProductItemCard/ProductItemCard';
+import medusaServerBaseURL from "../../server-url";
 
 const Home: React.FC = () => {
-  const medusaServerURL = "http://localhost:9000/store/products";
-  // const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-
     axios
-      .get(medusaServerURL)
+      .get(medusaServerBaseURL + "/store/products")
       .then((response) => {
 
         if (response.data) {
           let products = response.data.products;
-          console.log("products ", products)
 
           setProducts(products);
         }
       })
       .catch((err) => {
         console.log("error", err)
-      })
-      .finally(() => {
-        // setLoading(false);
       });
   }, []);
 
@@ -39,7 +33,7 @@ const Home: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
 
-        <IonGrid class="ion-no-padding">
+        <IonGrid class="ion-no-padding ion-no-margin">
           <IonRow>
 
             {products.map((product, i) =>
