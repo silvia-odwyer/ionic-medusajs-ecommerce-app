@@ -1,0 +1,19 @@
+.product_detail_img {
+    height: 30vh;
+    object-fit: cover;
+}
+
+h3 {
+    color: black;
+    font-weight: bold;
+}
+
+.button {
+    margin-top: 1em;
+}
+
+.metaInfo {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

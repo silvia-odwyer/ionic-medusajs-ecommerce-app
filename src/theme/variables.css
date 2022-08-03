@@ -1,6 +1,9 @@
 /* Ionic Variables and Theming. For more info, please see:
 http://ionicframework.com/docs/theming/ */
 
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'); */
+
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
@@ -74,6 +77,10 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  --ion-grid-padding: 1px;
+
+  /* --ion-font-family: "Inter", sans-serif; */
 }
 
 @media (prefers-color-scheme: dark) {
