@@ -3,6 +3,12 @@
     object-fit: cover;
 }
 
+@media (prefers-color-scheme: light) {  
+	h3 {   
+         color: black;  
+    }
+}
+
 h3 {
     color: black;
     font-weight: bold;

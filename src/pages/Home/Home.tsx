@@ -10,7 +10,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get(medusaServerBaseURL + "/store/products")
+      .get(`${medusaServerBaseURL}/store/products`)
       .then((response) => {
 
         if (response.data) {

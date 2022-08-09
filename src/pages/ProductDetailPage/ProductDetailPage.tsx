@@ -1,7 +1,7 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './ProductDetailPage.css';
 import React, { useEffect, useState } from 'react';
-import { IonCard, IonCardHeader, IonCardSubtitle, IonToast, IonImg, IonCardTitle, IonCardContent, IonButton } from '@ionic/react';
+import { IonCard, IonCardHeader, IonBackButton, IonButtons, IonCardSubtitle, IonToast, IonImg, IonCardTitle, IonCardContent, IonButton } from '@ionic/react';
 import axios from "axios";
 import { RouteComponentProps } from 'react-router-dom';
 import { Product } from '../../Interfaces';
@@ -31,6 +31,10 @@ const ProductDetailPage: React.FC<RouteComponentProps<{ id: string }>> = (props)
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton text="">
+            </IonBackButton>
+          </IonButtons>
           <IonTitle>Medusa Ecommerce Store</IonTitle>
         </IonToolbar>
       </IonHeader>
